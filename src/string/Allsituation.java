@@ -10,7 +10,7 @@ package string;
  */
 public class Allsituation {
 	public static void main(String[] args) {
-		char[] s= {'a','a','z','z'};
+		char[] s= {'a','b','c','d'};
 		getStringPermutations3(s, 0, s.length-1);
 	}
 	

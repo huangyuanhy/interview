@@ -35,18 +35,18 @@ public class MaxSegment {
 		System.out.println(maxSum);
 	}
 
-	
 
-static int MaxSubArray(int A[])
-{
-    int curSum;
-    int sum;
-    curSum = sum = 0;
-    for(int i=A.length-1; i >=0; i--)
-    {
-    	curSum =Math. max(curSum + A[i], A[i]);
-    	sum = Math.max(sum, curSum);
-    }
-    return sum;
-}
+
+	static int MaxSubArray(int A[])
+	{
+		int curSum;
+		int sum;
+		curSum = sum = 0;
+		for(int i=A.length-1; i >=0; i--)
+		{
+			curSum =Math. max(curSum + A[i], A[i]);
+			sum = Math.max(sum, curSum);
+		}
+		return sum;
+	}
 }
