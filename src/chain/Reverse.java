@@ -47,19 +47,21 @@ public class Reverse {
 	 * @return
 	 */
 	public Node execute(Node node) {
-        Node prev = null;
+        //Node prev = null;
         
         //可以先假设只有2个节点的特殊情况， pre 和tmp 永远都指向最后一个节点 且相等。
         if (node == null || node.next == null) {
-            prev = node;
+            //prev = node;
+        	return node;
         } else {
         	//下面代码就是只有两个节点的情况
         	//Node tmp =node.next;
             Node tmp = execute(node.next);
             node.next.next = node;
             node.next = null;
-            prev = tmp;
+            Node prev = tmp;
+            return prev;
         }
-        return prev;
+        
     }
 }
