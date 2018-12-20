@@ -1,7 +1,4 @@
 package tree;
-
-
-
 public class Node {
 	Integer value;
 	Node left;

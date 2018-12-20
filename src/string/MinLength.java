@@ -15,11 +15,59 @@ public class MinLength {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s1="acedcb";
-		String s2="cb";
-		int length = length(s1, s2);
-		System.out.println(length);
-		
+		String s1="12345";
+		String s2="344";
+		/*int length = length(s1, s2);
+		System.out.println(length);*/
+		name(s1, s2);
+	}
+	public static void name(String s1,String s2) {
+		char[] c1 = s1.toCharArray();
+		char[] c2 = s2.toCharArray();
+		int row=c2.length;
+		int col=c1.length;
+		int begin=0;
+		int lastEnd=0;
+		int end=0;
+		int min=Integer.MAX_VALUE;
+		int first=0;
+		int[][] arr=new int[row][col];
+		boolean[] flag=new boolean[c2.length];
+  		for (int i = 0; i < row; i++) {
+			for (int j = first; j < col; j++) {
+				if (c1[j]==c2[i]) {
+					arr[i][j]=1;
+					first=first==0?1:0;
+					flag[i]=true;
+				}
+			}
+			first=0;
+		}
+		for (boolean b:flag) {
+			if (!b) {
+				System.out.println("不包含子串");
+				return;
+			}
+		}
+		for (int i = 0; i < c2.length; i++) {
+			for (int j = 0; j < c1.length; j++) {
+				
+			}
+		}
+		for (int i = 0; i < col; i++) {
+			if (arr[row-1][i]==1) {
+				end=i;
+				for (int j = i; j >=lastEnd; j--) {
+					if (arr[0][j]==1) {
+						begin=j;
+						min=Math.min(min, end-begin+1);
+						lastEnd=i;
+						break;//退出当前循环
+					}
+				}
+			}
+		}
+		System.out.println(min);
 	}
 	/**
 	 * 
@@ -40,7 +88,7 @@ public class MinLength {
 		char[] c2=s2.toCharArray();
 		
 		for (int i = 0; i < c2.length; i++) {
-			map[c2[i]]++;
+			map[c2[i]]++;//这个很妙，用字符做下标，最多为256的长度，避免用map集合
 		}
 		while (right<c1.length) {
 			map[c1[right]]--;

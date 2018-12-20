@@ -17,8 +17,8 @@ public class CoinsOfTimes {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr= {5,10};
-		int coin = coins(arr, 20);
+		int[] arr= {5,10,25,1};
+		int coin = coins(arr, 100);
 		
 		System.out.println(coin);
 		

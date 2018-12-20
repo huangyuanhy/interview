@@ -24,7 +24,7 @@ public class Ispalindrome {
 		}
 		num=Math.abs(num);
 		int help=1;
-		while (num/help>=10) {
+		while (num/help>=10) {//判断num是几位数
 			help*=10;
 		}
 		while (num!=0) {
@@ -32,8 +32,7 @@ public class Ispalindrome {
 				return false;
 			}
 			num=(num%help)/10;
-			help/=100;
-			
+			help/=100;			
 		}
 		return true;
 	}

@@ -20,10 +20,9 @@ public class Reconstruct {
 	public static void main(String[] args) {
 		int[] pre = {1, 2,4,7,3,5,6,8};
         int[] in = { 4,7,2,1,5,3,8,6};
-       // Node node=construct(pre, 0, pre.length-1, in, 0, in.length-1);
-        //下面进行层次遍历
+       
         Node node=reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
-
+        //下面进行层次遍历
         orderPrint(node);
 	}
 	/**
@@ -43,30 +42,6 @@ public class Reconstruct {
 			}
         }
 	}
-	/*public static Node construct(int[] pre,int start1,int end1,int[] mid,int start2,int end2 ) {
-		if (pre==null||mid==null||pre.length!=mid.length) {
-			return null;
-		}
-		// 根据先序遍历的第一个数字先建立根节点
-		Node root=new Node(pre[start1]);
-		//在中序数组中找到此节点的位置
-		int count=0;
-		while(count<mid.length) {
-			if (pre[0]==mid[count]) {
-				break;
-			}
-			count++;
-		}
-		//如果咩有找到 则无法构建
-		if (count>=mid.length) {
-			return null;
-		}
-		//此时已经划分出根 左子树，右子树  递归进行构建	
-		root.left=construct(pre,start1+1,start1+count-start2, mid,start2,count-1);
-		root.right=construct(pre,count+1-start2+start1,end1, mid,count+1,end2);
-		return root;
-	}*/
-
 	 // 根据前序遍历和中序遍历重构二叉树
 	private static Node reConstructBinaryTree(
 	        int[] pre,int startPre,int endPre,int[] in,int startIn, int endIn) {

@@ -18,7 +18,7 @@ public class Longest {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr= { 2,1 ,5 ,3, 6,8,9,7};
+		int[] arr= {2,1,5,3,6,8,9,7};
 		
 		LinkedList<Integer> linkedList=new LinkedList<>();
 		int index=0;

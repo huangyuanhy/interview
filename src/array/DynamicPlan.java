@@ -39,7 +39,7 @@ public class DynamicPlan {
 		return num[row-1];	
 	}
 	/**
-	 * 利用二维数组来存所有记录 能够算出最有路劲
+	 * 利用二维数组来存所有记录 能够算出最优路径
 	 * @param a
 	 * @return
 	 */
@@ -78,8 +78,7 @@ public class DynamicPlan {
 		boolean flag=false;
 		if (a!=null) {
 			int row=0;
-			int column=a.length-1;
-			
+			int column=a.length-1;			
 			while(row<a.length && column>=0) {
 				if (a[row][column]==num) {
 					flag=true;

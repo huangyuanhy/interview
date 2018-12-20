@@ -6,8 +6,6 @@ import java.util.Stack;
 
 import org.junit.Test;
 
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.NoLock;
-
 public class InvertTree {
 	@Test
 	public void test() {
