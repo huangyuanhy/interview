@@ -17,9 +17,9 @@ public class MeetNode {
 		// TODO Auto-generated method stub
 
 	}
-	public static Node meet(Node head1,Node head2) {
-		Node n1=head1;
-		Node n2=head2;
+	public static Chain meet(Chain head1,Chain head2) {
+		Chain n1=head1;
+		Chain n2=head2;
 		int num=0;
 		while (n1.next!=null) {
 			num++;

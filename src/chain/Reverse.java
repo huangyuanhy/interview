@@ -14,9 +14,9 @@ public class Reverse {
 	@Test
 	public void test() {
 		//链表初试化
-		Node node = Node.init(arr);
+		Chain node = Chain.init(arr);
 		//Node reverse = reverse(node);
-		Node reverse = execute(node);
+		Chain reverse = execute(node);
 		while(reverse!=null) {
 			System.out.println(reverse.value);
 			reverse=reverse.next;
@@ -28,10 +28,10 @@ public class Reverse {
 	 * @param head
 	 * @return
 	 */
-	public Node reverse(Node head) {
-		Node tmp=null;
+	public Chain reverse(Chain head) {
+		Chain tmp=null;
 		
-		Node newNode=null;
+		Chain newNode=null;
 		while (head!=null) {
 			tmp=head;
 			head=head.next;
@@ -46,7 +46,7 @@ public class Reverse {
 	 * @param node
 	 * @return
 	 */
-	public Node execute(Node node) {
+	public Chain execute(Chain node) {
         //Node prev = null;
         
         //可以先假设只有2个节点的特殊情况， pre 和tmp 永远都指向最后一个节点 且相等。
@@ -56,10 +56,10 @@ public class Reverse {
         } else {
         	//下面代码就是只有两个节点的情况
         	//Node tmp =node.next;
-            Node tmp = execute(node.next);
+            Chain tmp = execute(node.next);
             node.next.next = node;
             node.next = null;
-            Node prev = tmp;
+            Chain prev = tmp;
             return prev;
         }
         

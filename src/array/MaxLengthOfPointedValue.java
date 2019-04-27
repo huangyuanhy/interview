@@ -7,7 +7,7 @@ package array;
  * @author Administrator
  *2018年9月7日
  *未排序数组正数数组中累加和为给定值K的最长子数组长度
- *【1,2,1,1,1】 K=3 ---- retrun 3=1+1+1
+ *【1,2,1,1,1】 K=3 ---- return 3=1+1+1
  */
 public class MaxLengthOfPointedValue {
 

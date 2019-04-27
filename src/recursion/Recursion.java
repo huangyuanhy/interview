@@ -1,6 +1,6 @@
 package recursion;
 /**
- * µÝ¹éËã·¨   ÊµÀý
+ * ï¿½Ý¹ï¿½ï¿½ã·¨   Êµï¿½ï¿½
  * @author Administrator
  *
  */
@@ -13,18 +13,18 @@ import org.junit.Test;
 
 public class Recursion {
 	public static void main(String args[]) {
-	/*	//------µÝ¹éÇóºÍ----------------------
+	/*	//------ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½----------------------
 		long before = System.currentTimeMillis();
 		System.out.println(test1(10));
 		long after=System.currentTimeMillis();
 		System.out.println(after-before);
-		//-------ÀûÓÃÊý×éÇóºÍ-------------------
+		//-------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-------------------
 		System.out.println(test2(10));*/
 		
-		//--------------------ÎÄ¼þ¼ÐµÝ¹é----------
-		test3(new File("E:\\JavaÏà¹Ø×ÊÁÏ\\ÎÄµµ"));
+		//--------------------ï¿½Ä¼ï¿½ï¿½ÐµÝ¹ï¿½----------
+		test3(new File("E:\\Javaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\ï¿½Äµï¿½"));
 	}		
-	//--------------¼ÆËãÅá²¨ÄÉÆõÊýÁÐ 1 1 2 3 5 8 13-----------
+	//--------------ï¿½ï¿½ï¿½ï¿½ï¿½á²¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1 1 2 3 5 8 13-----------
 	@Test
 	public static Integer test1(int n) {
 		if(n==1||n==2) {
@@ -34,27 +34,25 @@ public class Recursion {
 			return test1(n-1)+test1(n-2);
 		}
 	}
-//---------------forÑ­»·¼ÆËãÉÏÃæµÄÊýÁÐ----------------
+//---------------forÑ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½----------------
 	public static Integer test2(int n) {
 		int num1=1;
 		int num2=1;
 		int num3=0;
 		for(int i=3;i<n+1;i++) {
-			num3=num1+num2;
-			
+			num3=num1+num2;			
 			num1=num2;
-			num2=num3;
-			
+			num2=num3;			
 		}
 		return num3;
 	}
-//---------------------Ê÷µÄ±éÀú---ÎÄ¼þ¼Ð±éÀúµÄµÝ¹éËã·¨---------------------------
+//---------------------ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½---ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ÄµÝ¹ï¿½ï¿½ã·¨---------------------------
 	public static void test3(File f) {
 		File[] file=f.listFiles();
 		for(int i=0;i<file.length;i++) {
 			if(file[i].isFile()) {
 				
-				System.out.println("ÎÄ¼þÈçÏÂ£º"+file[i]);
+				System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â£ï¿½"+file[i]);
 			}
 			else {
 				test3(file[i]);

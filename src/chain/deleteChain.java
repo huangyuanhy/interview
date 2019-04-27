@@ -20,12 +20,12 @@ public class deleteChain {
 		
 	}
 	
-	public static  void delete(Node head,Node deleted) {
+	public static  void delete(Chain head,Chain deleted) {
 		if (head!=null&&deleted!=null) {//一定要先对参数进行校验          deleted有可能不在链表中，这个逻辑的判断咩有做，需要On 的时间
 			//要删除的节点不是尾戒点
 			if (deleted.next!=null) {
 				int value=deleted.value;
-				Node tmp=deleted.next;
+				Chain tmp=deleted.next;
 				deleted.value=tmp.value;//将下一个节点的值赋值给当前要删除的节点
 				deleted.next=tmp.next;//如果tmp.next为空也是符合要求的
 				tmp=null;

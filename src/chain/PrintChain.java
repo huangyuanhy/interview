@@ -20,14 +20,14 @@ public class PrintChain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] a= new int[]{1,2,3,4};
-		Node node=null;
+		Chain node=null;
 		for(int i=0;i<a.length;i++) {
-			node=new Node(a[i], node);
+			node=new Chain(a[i], node);
 		}
 		print(null);
 		print2(null);
 	}
-	public static void print(Node node) {
+	public static void print(Chain node) {
 		if (node!=null) {
 			if (node.next!=null) {
 				print(node.next);
@@ -38,18 +38,18 @@ public class PrintChain {
 
 	}
 	//基于桟的思想
-	public static void print2(Node node) {
+	public static void print2(Chain node) {
 		/*if (node==null) {
 			throw new RuntimeException("请输入一个非空节点");
 		}*/
 		if (node!=null) {
-			Stack<Node> stact=new Stack<>();
+			Stack<Chain> stact=new Stack<>();
 			while (node!=null) {
 				stact.push(node);
 				node=node.next;
 			}
 			while (!stact.isEmpty()) {
-				Node pop = stact.pop();
+				Chain pop = stact.pop();
 				System.out.println(pop.value);
 			}
 		}

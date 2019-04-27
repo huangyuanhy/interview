@@ -12,7 +12,7 @@ import java.util.Stack;
  */
 public class ReverseKNode {
 	static int count=0;
-	static Node nNode=null;//返回的头节点
+	static Chain nNode=null;//返回的头节点
 	static boolean flag=true;		
 	/**
 	 * @param args
@@ -20,30 +20,30 @@ public class ReverseKNode {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] a= {10,9,8,7,6,5,4,3,2,1};
-		Node head = Node.init(a);
-		Node tmp=head;
+		Chain head = Chain.init(a);
+		Chain tmp=head;
 		while (tmp!=null) {
 			count++;
 			tmp=tmp.next;
 		}
 		count=count/3;//循环几次；
-		Node solution = loopReverse(head, 3,count);
+		Chain solution = loopReverse(head, 3,count);
 		while (solution!=null) {
 			System.out.println(solution.value);
 			solution=solution.next;
 		}
 	}
 
-	public static Node loopReverse(Node n,int K,int count) {
+	public static Chain loopReverse(Chain n,int K,int count) {
 		if (count==0||null==n) {
 			return n;
 		}
 		int a=count;
-		Node tmp=n;
+		Chain tmp=n;
 		int num=1;//第几个节点
-		Node pre=null;
+		Chain pre=null;
 		while (n!=null&&num<=K&&a-->0) {
-			Node next=n.next;
+			Chain next=n.next;
 			n.next=pre;
 			pre=n;
 			n=next;		

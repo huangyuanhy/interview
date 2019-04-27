@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * 为排序数组中累加和为给定值得最大子数组系列问题
+ * 未排序数组中累加和为给定值得最大子数组系列问题
  * @author Administrator
  *2018年8月23日
  */

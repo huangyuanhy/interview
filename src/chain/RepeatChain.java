@@ -23,18 +23,18 @@ public class RepeatChain {
 	@Test
 	public void test() {
 		//锟斤拷始锟斤拷锟斤拷锟斤拷
-		Node top = Node.init(arr);
+		Chain top = Chain.init(arr);
 		//锟揭筹拷锟斤拷锟斤拷锟斤拷锟截革拷锟斤拷锟斤拷锟斤拷锟斤拷值锟斤拷锟斤拷锟截革拷锟斤拷锟斤拷
 		repeat(top);
 		//锟斤拷锟斤拷锟斤拷锟斤拷
-		Node sort = sort(top);
+		Chain sort = sort(top);
 		//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 		while(sort!=null) {
 			System.out.println(sort.value);
 			sort=sort.next;
 		}
 		//锟斤拷锟斤拷去锟斤拷
-		Node distinct = distinct(top);
+		Chain distinct = distinct(top);
 		//锟斤拷锟斤拷去锟截猴拷锟斤拷锟斤拷锟斤拷
 		while(distinct!=null) {
 			System.out.println(distinct.value);
@@ -43,8 +43,8 @@ public class RepeatChain {
 	}
 	@Test
 	public void testSort() {
-		Node top =Node.init(arr);
-		Node sort = sort(top);
+		Chain top =Chain.init(arr);
+		Chain sort = sort(top);
 		while(sort!=null) {
 			System.out.println(sort.value);
 			sort=sort.next;
@@ -54,8 +54,8 @@ public class RepeatChain {
 	//锟斤拷始锟斤拷锟斤拷锟斤拷
 
 	//锟揭筹拷锟斤拷锟斤拷锟斤拷锟截革拷锟斤拷锟斤拷锟斤拷锟斤拷值锟斤拷锟斤拷锟截革拷锟斤拷锟斤拷
-	public void repeat(Node top) {			
-		Node node=top;
+	public void repeat(Chain top) {			
+		Chain node=top;
 		//锟斤拷一锟斤拷integer锟角憋拷示锟斤拷锟斤拷锟叫碉拷值锟斤拷锟节讹拷锟斤拷锟角憋拷示锟截革拷锟侥达拷锟斤拷
 		Map<Integer,Integer> map=new HashMap(16);
 		int key=0;//锟斤拷示锟斤拷锟斤拷锟叫碉拷值
@@ -86,11 +86,11 @@ public class RepeatChain {
 	}
 	
 	//冒锟斤拷锟斤拷锟斤拷
-	public Node sort(Node head){
+	public Chain sort(Chain head){
 		if(head == null || head.next == null)  //锟斤拷锟斤拷为锟秸伙拷锟竭斤拷锟叫碉拷锟斤拷锟斤拷锟�
 			return head;
 
-		Node cur = null, tail = null;
+		Chain cur = null, tail = null;
 
 		cur = head;
 
@@ -114,13 +114,13 @@ public class RepeatChain {
 		return head;
 	}
 	//锟斤拷锟斤拷去锟斤拷
-	public Node distinct(Node top) {
+	public Chain distinct(Chain top) {
 		
 		//锟斤拷锟斤拷锟斤拷
-		Node sort = sort(top);
+		Chain sort = sort(top);
 		
-		Node node=sort;
-		Node current=null;
+		Chain node=sort;
+		Chain current=null;
 		while(node!=null) {
 			current=node.next;
 			if (current!=null&&current.value==node.value) {

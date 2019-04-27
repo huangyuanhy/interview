@@ -16,23 +16,23 @@ public class NodeLoop {
 	public static void main(String[] args) {
 		//int[] a= {5,4,3,2,1};
 		int[] a= {};
-		Node n = Node.init(a);
+		Chain n = Chain.init(a);
 		if (null==n) {
-			Node head = insert(n, 5);
+			Chain head = insert(n, 5);
 			System.out.println(head);
 		}
-		Node tmp=n;
+		Chain tmp=n;
 
 		while (tmp.next!=null) {
 			tmp=tmp.next;
 		}
 		tmp.next=n;
-		Node head = insert(n, 5);
+		Chain head = insert(n, 5);
 		System.out.println(head);
 
 	}
-	private static Node insert(Node head,int K) {
-		Node node = new Node(K, null);
+	private static Chain insert(Chain head,int K) {
+		Chain node = new Chain(K, null);
 		if (head==null) {
 
 			node.next=node;
@@ -45,9 +45,9 @@ public class NodeLoop {
 			return head;
 		}*/
 		//节点不止一个
-		Node pre=head;
-		Node next=null;
-		Node cur=head.next;
+		Chain pre=head;
+		Chain next=null;
+		Chain cur=head.next;
 		while (cur!=head) {
 			next=cur.next;
 			if (cur.value<K) {

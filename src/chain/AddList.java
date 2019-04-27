@@ -11,10 +11,10 @@ import java.util.Stack;
 public class AddList {
 	public static void main(String[] args) {
 		int[] a= {7,3,9};
-		Node head1 = Node.init(a);
+		Chain head1 = Chain.init(a);
 		int[] b= {3,6};
-		Node head2 = Node.init(b);
-		Node solution = solution(head1, head2);
+		Chain head2 = Chain.init(b);
+		Chain solution = solution(head1, head2);
 		while (solution!=null) {
 			System.out.println(solution.value);
 			solution=solution.next;
@@ -26,25 +26,25 @@ public class AddList {
 	 * @param head2
 	 * @return
 	 */
-	public static Node solution(Node head1,Node head2) {
-		Node reverse1 = Reverse.reverse(head1);
-		Node reverse2 = Reverse.reverse(head2);
+	public static Chain solution(Chain head1,Chain head2) {
+		Chain reverse1 = Reverse.reverse(head1);
+		Chain reverse2 = Reverse.reverse(head2);
 		 
-		Node nNode=null;
+		Chain nNode=null;
 		int tmp=0;
 		while (reverse1!=null||reverse2!=null) {
 			int a=reverse1==null?0:reverse1.value;
 			int b=reverse2==null?0:reverse2.value;
 			
 			int sum=a+b+tmp;
-			nNode=new Node(sum%10, nNode);
+			nNode=new Chain(sum%10, nNode);
 			tmp=sum/10;
 			
 			reverse1=reverse1==null?null:reverse1.next;
 			reverse2=reverse2==null?null:reverse2.next;
 		}
 		if (1==tmp) {
-			nNode=new Node(tmp, nNode);
+			nNode=new Chain(tmp, nNode);
 			
 		}
 		return nNode;
@@ -56,13 +56,13 @@ public class AddList {
 	 * @param head2
 	 * @return
 	 */
-	public static Node solution1(Node head1,Node head2) {
+	public static Chain solution1(Chain head1,Chain head2) {
 		if (head1==null||head2==null) {
 			return head1==null? head2:head1;
 		}
 		
-		Stack<Node> stack1=new Stack<>();
-		Stack<Node> stack2=new Stack<>();
+		Stack<Chain> stack1=new Stack<>();
+		Stack<Chain> stack2=new Stack<>();
 		while (head1!=null) {
 			stack1.push(head1);	
 			head1=head1.next;
@@ -72,30 +72,30 @@ public class AddList {
 			head2=head2.next;
 		}
 		int tmp=0;
-		Node nNode=null;
-		Node pre=null;
+		Chain nNode=null;
+		Chain pre=null;
 		while (stack1.size()!=0||stack2.size()!=0) {
 			int a =stack1.isEmpty()?0:stack1.pop().value;
 			int b =stack2.isEmpty()?0:stack2.pop().value;
 
 			int sum=a+b+tmp;
-			pre=new Node(sum%10,nNode);
+			pre=new Chain(sum%10,nNode);
 			nNode=pre;
 			pre=null;
 			tmp=sum/10;
 
 		}	
 		if (1==tmp) {
-			pre=new Node(tmp, nNode);
+			pre=new Chain(tmp, nNode);
 			nNode=pre;
 			pre=null;
 		}
 		return nNode;
 	}
 	private static class Reverse {
-		private static Node reverse(Node head) {
-			Node pre=null;
-			Node tmp=null;
+		private static Chain reverse(Chain head) {
+			Chain pre=null;
+			Chain tmp=null;
 			while (head!=null) {
 				tmp=head.next;
 				head.next=pre;

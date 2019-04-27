@@ -9,10 +9,10 @@ public class Dui {
 
 	    for (int i = 0; i < arrays.length; i++) {
 
-	        //Ã¿Íê³ÉÒ»´Î½¨¶Ñ¾Í¿ÉÒÔÅÅ³ýÒ»¸öÔªËØÁË
+	        //Ã¿ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½Ñ¾Í¿ï¿½ï¿½ï¿½ï¿½Å³ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½
 	        maxHeapify(arrays, arrays.length - i);
 
-	        //½»»»
+	        //ï¿½ï¿½ï¿½ï¿½
 	        int temp = arrays[0];
 	        arrays[0] = arrays[(arrays.length - 1) - i];
 	        arrays[(arrays.length - 1) - i] = temp;
@@ -25,7 +25,7 @@ public class Dui {
 	}
 
 	/**
-	 * Íê³ÉÒ»´Î½¨¶Ñ£¬×î´óÖµÔÚ¶ÑµÄ¶¥²¿(¸ù½Úµã)
+	 * ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½Ñ£ï¿½ï¿½ï¿½ï¿½Öµï¿½Ú¶ÑµÄ¶ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Úµï¿½)
 	 */
 	public static void maxHeapify(int[] arrays, int size) {
 
@@ -37,42 +37,42 @@ public class Dui {
 
 
 	/**
-	 * ½¨¶Ñ
+	 * ï¿½ï¿½ï¿½ï¿½
 	 *
-	 * @param arrays          ¿´×÷ÊÇÍêÈ«¶þ²æÊ÷
-	 * @param currentRootNode µ±Ç°¸¸½ÚµãÎ»ÖÃ
-	 * @param size            ½Úµã×ÜÊý
+	 * @param arrays          ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param currentRootNode ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½ï¿½
+	 * @param size            ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static void heapify(int[] arrays, int currentRootNode, int size) {
 
 	    if (currentRootNode < size) {
-	        //×ó×ÓÊ÷ºÍÓÒ×ÖÊýµÄÎ»ÖÃ
+	        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	        int left = 2 * currentRootNode + 1;
 	        int right = 2 * currentRootNode + 2;
 
-	        //°Ñµ±Ç°¸¸½ÚµãÎ»ÖÃ¿´³ÉÊÇ×î´óµÄ
+	        //ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½Úµï¿½Î»ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	        int max = currentRootNode;
 
 	        if (left < size) {
-	            //Èç¹û±Èµ±Ç°¸ùÔªËØÒª´ó£¬¼ÇÂ¼ËüµÄÎ»ÖÃ
+	            //ï¿½ï¿½ï¿½ï¿½Èµï¿½Ç°ï¿½ï¿½Ôªï¿½ï¿½Òªï¿½ó£¬¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	            if (arrays[max] < arrays[left]) {
 	                max = left;
 	            }
 	        }
 	        if (right < size) {
-	            //Èç¹û±Èµ±Ç°¸ùÔªËØÒª´ó£¬¼ÇÂ¼ËüµÄÎ»ÖÃ
+	            //ï¿½ï¿½ï¿½ï¿½Èµï¿½Ç°ï¿½ï¿½Ôªï¿½ï¿½Òªï¿½ó£¬¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	            if (arrays[max] < arrays[right]) {
 	                max = right;
 	            }
 	        }
-	        //Èç¹û×î´óµÄ²»ÊÇ¸ùÔªËØÎ»ÖÃ£¬ÄÇÃ´¾Í½»»»
+	        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Ç¸ï¿½Ôªï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½Ã´ï¿½Í½ï¿½ï¿½ï¿½
 	        if (max != currentRootNode) {
 	            int temp = arrays[max];
 	            arrays[max] = arrays[currentRootNode];
 	            arrays[currentRootNode] = temp;
 
-	            //¼ÌÐø±È½Ï£¬Ö±µ½Íê³ÉÒ»´Î½¨¶Ñ
-	            heapify(arrays, max, size);
+	            //ï¿½ï¿½ï¿½ï¿½ï¿½È½Ï£ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½
+	           heapify(arrays, max, size);
 	        }
 	    }
 	}

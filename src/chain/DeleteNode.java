@@ -11,16 +11,16 @@ package chain;
 public class DeleteNode {
 	public static void main(String[] args) {
 		int[] a= {10,9,8,7,6,5,4,3,1,1};
-		Node n = Node.init(a);
-		Node delete = delete(n);
+		Chain n = Chain.init(a);
+		Chain delete = delete(n);
 		System.out.println(n.value);
 	}
-	private static Node delete(Node n) {
+	private static Chain delete(Chain n) {
 		if (null==n||n.next==null) {
 			throw new RuntimeException("节点为空或者节点为最后一个，无法删除");
 			
 		}
-		Node next=n.next;
+		Chain next=n.next;
 		while (n.value==next.value) {
 			n.next=next.next;
 			next=n.next;
