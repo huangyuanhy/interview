@@ -3,7 +3,6 @@
  */
 package chain;
 
-import java.util.Stack;
 
 /**
  * @author Administrator
@@ -13,12 +12,9 @@ import java.util.Stack;
 public class ReverseKNode {
 	static int count=0;
 	static Chain nNode=null;//返回的头节点
-	static boolean flag=true;		
-	/**
-	 * @param args
-	 */
+	static boolean flag=true;	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int[] a= {10,9,8,7,6,5,4,3,2,1};
 		Chain head = Chain.init(a);
 		Chain tmp=head;

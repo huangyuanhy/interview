@@ -15,7 +15,6 @@ public class ab {
 		int[] arr= {4,3,6,3,1,8,5,0};
 		int num=9;
 		sum(arr, num);
-		
  	}
 	public void sum(int[] arr,int num) {
 		Arrays.sort(arr);
@@ -35,7 +34,5 @@ public class ab {
 				i++;
 			}
 		}
-		
-	
 	}
 }

@@ -3,7 +3,6 @@
  */
 package dynamic;
 
-import sun.security.util.BitArray;
 
 /**
  * @author Administrator

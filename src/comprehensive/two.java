@@ -2,10 +2,6 @@ package comprehensive;
 
 import java.util.Arrays;
 
-import com.sun.xml.internal.bind.v2.runtime.Name;
-
-import array.intersect;
-
 /**
  * 最长递增子数列
  * @author Administrator
