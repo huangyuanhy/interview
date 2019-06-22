@@ -2,10 +2,9 @@ package chain;
 
 import java.util.List;
 
-import sun.security.krb5.internal.ccache.CCacheInputStream;
-import sun.security.krb5.internal.crypto.crc32;
 
-/**]
+
+/**
  * 链表相关问题
  * @author Administrator
  *2019年4月15日
@@ -15,7 +14,7 @@ public class SerialProblemsOfLinkedList {
 	public static void main(String[] args) {
 		int[] arr3= {5,4,3,2,1};
 		Chain c3 = Chain.init(arr3);
-		printChain(reverseK(c3, 2));
+		printChain(reverseK(c3, 4));
 	}
 	public static void printChain(Chain node) {
 		while (node!=null) {
@@ -184,6 +183,40 @@ public class SerialProblemsOfLinkedList {
 		return c;
 	}
 	//翻转链表的第n个到m之间的节点
+	
+	public static Chain solution(Chain head, int n, int m) {
+
+		 if(m>=n||head == null){
+	            return null;
+	        }
+	        Chain dummy = new Chain(0);
+	        dummy.next = head;
+	        head = dummy;
+	        for(int i = 1;i<m;i++){
+	            if(head == null){
+	                return null;
+	            }
+	            head = head.next;
+	        }
+	        Chain pmNode = head;
+	        Chain mNode = head.next;
+	        Chain nNode = mNode;
+	        Chain pnNode = mNode.next;
+	        for(int i = m;i<n;i++){
+	            if(pnNode == null){
+	                return null;
+	            }
+	            Chain tmp = pnNode.next;
+	            pnNode.next = nNode;
+	            nNode = pnNode;
+	            pnNode = tmp;
+	        }
+	        pmNode.next = nNode;
+	        mNode.next = pnNode;
+	        
+	        return dummy.next;
+	}
+	
 	public static Chain reverseFromN2M(Chain c,int n,int m){
 		if (c==null||c.next==null||n>m||m<=1) {
 			return c;

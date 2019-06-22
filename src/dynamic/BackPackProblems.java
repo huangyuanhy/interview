@@ -29,7 +29,7 @@ public class BackPackProblems {
 					//只能放一次
 					arr[i][j]=Math.max(arr[i-1][j],arr[i-1][j-gravity[i-1]]+value[i-1]);
 					//可以重复放入
-					arr[i][j]=Math.max(arr[i][j],arr[i][j-gravity[i-1]]+value[i-1]);
+					//arr[i][j]=Math.max(arr[i][j],arr[i][j-gravity[i-1]]+value[i-1]);
 				}else {
 					arr[i][j]=arr[i-1][j];
 				}
@@ -37,6 +37,7 @@ public class BackPackProblems {
 		}
 		System.out.println(arr[value.length][K]);		
 	}
+	
 }
 
 

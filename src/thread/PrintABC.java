@@ -32,7 +32,7 @@ class myThreads implements Runnable{
 		synchronized (obj) {
 			for(int n=0;n<10;n++){
 				obj.notifyAll();
-				if((count)%3!=i){
+				if((count%3)!=i){
 					try {
 						obj.wait();
 					} catch (InterruptedException e) {
@@ -43,7 +43,7 @@ class myThreads implements Runnable{
 				System.out.print(name);
 				count++;
 				try {
-					
+					//等待下一次循环打印
 					obj.wait();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

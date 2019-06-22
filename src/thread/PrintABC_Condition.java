@@ -15,6 +15,7 @@ public class PrintABC_Condition {
 
 	private volatile String name="A";//打印名称
 	private volatile int count=0;
+	
 	public static void main(String[] args) {
 		PrintABC_Condition pCondition=new PrintABC_Condition();
 		ExecutorService pool = Executors.newFixedThreadPool(3);

@@ -3,8 +3,9 @@ package thread;
 
 public class PrintABC_Priority {
 	static PrintABC_Priority printABC_Priority=new PrintABC_Priority();
-	private volatile int state=0;
+	private static volatile int state=0;
 	private static final int COUNT=10;
+	
 	public static void main(String[] args) {
 		Object lock=new Object();
 		
@@ -32,7 +33,7 @@ public class PrintABC_Priority {
 	
 	class MyThread implements Runnable{
 
-		private int flag;
+		private int flag; 
 		private int nextflag;
 		
 		private char printChar;//打印字符
@@ -46,21 +47,17 @@ public class PrintABC_Priority {
 			this.lock = lock;
 		}
 
-
-
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			synchronized (lock) {
 				for(int i=0;i<COUNT;i++) {
 					while (state!=flag) {
 						try {
 							lock.wait();
 						} catch (Exception e) {
-							// TODO: handle exception
 						}
 					}
-					System.out.println(printChar);
+					System.out.print(printChar);
 					state=nextflag;
 					lock.notifyAll();
 				}
