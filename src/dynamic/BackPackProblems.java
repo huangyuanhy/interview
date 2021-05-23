@@ -16,9 +16,9 @@ public class BackPackProblems {
 	 */
 	public static void main(String[] args) {
 		
-		int[] gravity= {3,4,5};
-		int[] value= {4,5,6};
-		solution(gravity, value,10);
+		int[] gravity= {2,3,4};
+		int[] value= {3,4,5};
+		solution(gravity, value,8);
 	}
 	public static void solution(int[] gravity,int[] value,int K) {
 		int[][] arr=new int[value.length+1][K+1];//行数为物品，列数为总重量
@@ -27,9 +27,9 @@ public class BackPackProblems {
 				//第0行第0列的值都为0 所以从arr[1][1]开始   
 				if (j>=gravity[i-1]) {
 					//只能放一次
-					arr[i][j]=Math.max(arr[i-1][j],arr[i-1][j-gravity[i-1]]+value[i-1]);
+					//arr[i][j]=Math.max(arr[i-1][j],arr[i-1][j-gravity[i-1]]+value[i-1]);
 					//可以重复放入
-					//arr[i][j]=Math.max(arr[i][j],arr[i][j-gravity[i-1]]+value[i-1]);
+					arr[i][j]=Math.max(arr[i][j],arr[i][j-gravity[i-1]]+value[i-1]);
 				}else {
 					arr[i][j]=arr[i-1][j];
 				}

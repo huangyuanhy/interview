@@ -3,40 +3,57 @@ package array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * 给定一个数组，目标和为sum, 找出所有的组合等于sum,顺序不同组合视为不同的解
+ * 
+ * @author pc 2021年5月16日
+ */
 public class N_sum3 {
 	static ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
-    static LinkedList <Integer> fuck = new LinkedList<>();
+	static LinkedList<Integer> fuck = new LinkedList<>();
 
-    public static void main(String[] args) {
-        int arr[] = new int[100];
-        for(int i=0;i<100;i++){
-            arr[i] = i+1;
-        }
-        //100是查找和为100的数字，0是数组开始位置，arr.length-1是数组结束位置
-        findList(100,arr,0,arr.length-1);
-        for(ArrayList list :lists){
-            System.out.println(list);
-        }
-    }
-//sun要找的和为定值的数，arr数组是找数的范围，start是标记当前递归的下标，end是用来跟start判断的如果小于start就结束递归
-    public static void findList(int sum, int[] arr, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        if (sum == arr[start]) {
-            ArrayList<Integer> list = new ArrayList<>();
-            for(Integer num :fuck){
-                list.add(num);
-            }
-            list.add(arr[start]);
-            lists.add(list);
-        } else {
-            if (sum > arr[start]) {
-                fuck.add(arr[start]);
-                findList(sum - arr[start], arr, start + 1, end);
-                fuck.remove(fuck.size()-1);
-            }
-            findList(sum, arr, start + 1, end);
-        }
-    }
+	public static void main(String[] args) {
+		int arr[] = { 1, 2, 3 };
+		findList(4, 0, arr);
+		System.out.print(lists);
+		System.out.print(dp(arr, 4));
+	}
+	public static int dp(int[] arr,int target) {
+		int[] dp=new int[target+1];
+		dp[0]=1;
+		for(int i=1;i<=target;i++) {
+			for (int j = 0; j < arr.length; j++) {
+				if (i>=arr[j]) {
+					dp[i]+=dp[i-arr[j]];
+				}
+			}
+		}
+		return dp[target];
+	}
+/**
+ * 递归法
+ * @param sum
+ * @param index
+ * @param arr
+ */
+	public static void findList(int sum, int index, int[] arr) {
+		if (index > arr.length - 1) {
+			return;
+		}
+		if (sum == 0) {
+			ArrayList<Integer> list = new ArrayList<>();
+			for (Integer num : fuck) {
+				list.add(num);
+			}
+			lists.add(list);
+		} else {
+			if (sum >= arr[index]) {
+				fuck.add(arr[index]);
+//				findList(sum - arr[index], index, arr);// 同一组合的不同顺序算一种
+				findList(sum - arr[index], 0, arr);// 同一组合的不同顺序算多种
+				fuck.remove(fuck.size() - 1);
+			}
+			findList(sum, index + 1, arr);
+		}
+	}
 }

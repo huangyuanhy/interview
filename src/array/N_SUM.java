@@ -8,11 +8,14 @@ package array;
  */
 public class N_SUM {
 public static void main(String[] args) {
-	 int[] a = { 10, 4, 7, 1, 9, 6, 3 };
+	 int[] a = { 4, 7, 1, 9, 6, 3 };
      int initVal = 10;
      solve1(a, initVal);
      System.out.println("------------------");
      Solve(a, initVal);
+     
+     System.out.println("------------------");
+     findAllSolutions(a, 10);
 }
 /**
  * @param a
@@ -55,6 +58,23 @@ private static void solve1(int[] a, int initVal) {
 			return haveAnswer(a, n-1, k);
 		}
 	}
+	
+	
+	// 找出和为k 一共有几组解法
+	public static void findAllSolutions(int[] arr,int K) {
+		System.out.print(find(arr,0,K));
+	}
+	private static int find(int[] arr, int index, int k) {
+		if (k<0||index>arr.length-1) {
+			return 0;// 退出条件
+		}
+		if (k==0||arr[index]==k) {//选择当前数
+			return 1;
+		}
+		int res= find(arr, index+1, k-arr[index]);// 选择当前数
+		
+		return find(arr, index+1, k)+res;// 选择下一个数
 
+	}
 
 }
