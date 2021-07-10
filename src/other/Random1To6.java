@@ -32,8 +32,10 @@ System.out.println(rand1To6());
 		 
 		return rand01()*2+rand01();
 	}
+
 	/**
-	 * 等概率产生0 1 
+	 * 等概率产生0 1
+	 * 
 	 * @return
 	 */
 private static int rand01() {
