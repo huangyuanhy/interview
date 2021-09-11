@@ -49,4 +49,47 @@ public class LoopNode {
 		}
 		return fast;
 	}
+    public Chain detectCycle3(Chain head) {
+        if(head==null){
+            return null;
+        }
+        Chain node=new Chain(0);
+        Chain cur=head;
+        while(node!=cur.next){
+        	Chain tmp=cur.next;
+            cur.next=node;
+            cur=tmp;
+            if(cur==null){
+                return null;
+            }
+            
+        }
+        
+        return cur;
+    }
+	public Chain detectCycle(Chain head) {
+		if (head == null) {
+			return null;
+		}
+		Chain slow = head;
+		Chain fast = head;
+
+		while (fast != null) {
+			slow = slow.next;
+			if (fast.next != null) {
+				fast = fast.next.next;
+			} else {
+				return null;
+			}
+			if (fast == slow) {
+				Chain tmp = head;
+				while (tmp != slow) {
+					tmp = tmp.next;
+					slow = slow.next;
+				}
+				return tmp;
+			}
+		}
+		return null;
+	}
 }

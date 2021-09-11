@@ -29,7 +29,7 @@ public class N_sum4 {
                 list.add(num);
             }
             list.add(arr[start]);
-            lists.add(list);
+            lists.add(new ArrayList(fuck));
         } else {
             if (sum > arr[start]) {
                 fuck.add(arr[start]);
